@@ -273,7 +273,17 @@ studentForm.addEventListener('submit', (event) => {
 
   let emailElement = document.createElement('p');
 
-  console.log(!studentEmail.includes('@'))
+  console.log(studentEmail.length)
+
+  if(!studentEmail.includes('@') && studentEmail.length < 6){
+    let InputERROR = document.createElement('span');
+    InputERROR.textContent = 'Vardas privalo būti bent 3 simbolių' ;
+    InputERROR.classList.add('WordError');
+    studentSurnameInput.after(InputERROR);
+  }
+  else{
+    surnameElement.innerHTML = `<strong>Surname:</strong> ${studentSurname}`;
+  }
 
   // emailElement.innerHTML = `<strong>Email:</strong> ${studentEmail}`;
   emailElement.innerHTML = `<strong>Email:</strong> ****`;
